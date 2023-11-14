@@ -2,9 +2,10 @@ from typing import Union
 
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
+from conector import resource as conector
 
 app = FastAPI(
-    title="Fastnetmon WEB API",
+    title="Raiden API",
     version="1.0",
     docs_url="/documentation"
 )
@@ -24,3 +25,5 @@ async def root():
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
+
+app.include_router(conector.router)
