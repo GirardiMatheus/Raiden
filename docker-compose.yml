@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  api-raiden:
+    hostname: api-raiden
+    build: .
+    command: uvicorn main:app --host 0.0.0.0 --reload
+    restart: always
+    volumes:
+      - ./src/app:/src/app
+    ports:
+      - 8090:8000
