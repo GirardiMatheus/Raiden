@@ -1,10 +1,7 @@
 """
 Module for send comands to host
 """
-
 from typing import Annotated
-from fastapi import APIRouter, Body, status
-from fastapi.responses import JSONResponse
 
 router = APIRouter(
     prefix="/command",
